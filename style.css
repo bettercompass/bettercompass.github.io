@@ -1,0 +1,18 @@
+div#container {
+	width: 100%;
+	text-align: center;
+}
+
+canvas#compass {
+	display: inline;
+}
+
+table td {
+	border: 1px solid black;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+table, th, td {
+	border-collapse: collapse;
+}

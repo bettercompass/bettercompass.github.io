@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<title>BetterCompass | Result</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script src="js/compass.js"></script>
+	</head>
+
+	<body>
+		<div id="container"><canvas id="compass" width="400" height="400"></canvas></div>
+
+		<script>
+			let params = new URLSearchParams(location.search);
+			if (params.get('x') && params.get('y')) {
+				Compass.render("compass", [Number(params.get('x')), Number(params.get('y'))]);
+			} else {
+				document.getElementById("container").innerHTML = '<a href="index.html">Redirecting...</a>';
+				window.location.replace("index.html");
+			}
+		</script>
+	</body>
+
+</html>

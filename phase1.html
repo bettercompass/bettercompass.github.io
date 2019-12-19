@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<title>BetterCompass | Result</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script src="js/compass.js"></script>
+		<script src="js/quiz.js"></script>
+	</head>
+
+	<body>
+		<div id="container"><canvas id="compass" width="400" height="400"></canvas></div>
+
+		<script>
+			let params = new URLSearchParams(location.search);
+			if (params.get('1')) {
+				let q = Quiz.phase1;
+				let t = 0;
+				let e = 0;
+				for (let i=0; i<q.length; i++) {
+					let v = Number(params.get((i+1).toString()))*q[i][1];
+					e+=v;
+					t+=2;
+				}
+				let econ = Math.round(e/t*10*10)/10;
+
+				let g = "?x=".concat(econ).concat("&y=0");
+				document.getElementById("container").innerHTML = '<a href="result.html'.concat(g).concat('">Redirecting...</a>');
+				window.location.replace("result.html".concat(g));
+			} else {
+				document.getElementById("container").innerHTML = '<a href="index.html">Redirecting...</a>';
+				window.location.replace("index.html");
+			}
+		</script>
+	</body>
+
+</html>
